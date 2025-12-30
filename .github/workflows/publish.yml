@@ -9,6 +9,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      id-token: write # 🔥 КЛЮЧЕВО
+
     steps:
       - uses: actions/checkout@v4
 
@@ -17,7 +21,5 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - name: Publish
+      - name: Publish via OIDC
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
