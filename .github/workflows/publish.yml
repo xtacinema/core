@@ -21,5 +21,4 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - name: Publish via OIDC
-        run: npm publish --access public
+      - run: npm publish --access public
