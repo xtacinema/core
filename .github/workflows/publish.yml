@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://registry.npmjs.org
+          # ❌ НЕТ registry-url
 
       - name: Publish via OIDC
         run: npm publish --access public --provenance
