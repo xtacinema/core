@@ -9,9 +9,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
-    permissions:
+    permissions: # ⬅️ ОБЯЗАТЕЛЬНО ЗДЕСЬ
       contents: read
-      id-token: write # 🔑 OIDC
+      id-token: write # ⬅️ КЛЮЧ
 
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          # ❌ НЕТ registry-url
 
-      - name: Publish via OIDC
-        run: npm publish --access public --provenance
+      - run: npm publish --access public --provenance
