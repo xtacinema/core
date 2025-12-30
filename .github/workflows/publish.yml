@@ -11,7 +11,7 @@ jobs:
 
     permissions:
       contents: read
-      id-token: write # 🔥 ОБЯЗАТЕЛЬНО
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -21,4 +21,11 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
-      - run: npm publish --access public
+      - name: Hard reset npm auth
+        run: |
+          rm -f ~/.npmrc
+          npm config delete //registry.npmjs.org/:_authToken || true
+          npm config delete always-auth || true
+
+      - name: Publish via OIDC
+        run: npm publish --access public
