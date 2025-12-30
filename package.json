@@ -9,11 +9,11 @@
   "license": "ISC",
   "author": {
     "name": "xtaide",
-    "email": "admin@xtatech.com"
+    "email": "admin@xtacinema.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xtatech/xtacinema-core"
+    "url": "https://github.com/xtacinema/core"
   },
   "peerDependencies": {
     "prettier": "^3.0.0"
@@ -22,7 +22,7 @@
     "@trivago/prettier-plugin-sort-imports": "^5.2.2"
   },
   "exports": {
-    ".": "./config/prettier.config.mjs"
+    "prettier": "./src/prettier.config.mjs"
   },
   "files": [
     "config",
