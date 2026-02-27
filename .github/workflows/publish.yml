@@ -15,15 +15,11 @@ jobs:
       - name: Setup Node.JS
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "22"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Debug npm auth
-        run: |
-          echo "Token length: ${#NODE_AUTH_TOKEN}"
-          npm whoami --registry=https://registry.npmjs.org/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Install deps
+        run: npm install --package-lock-only
 
       - name: Publish package
         run: npm publish
