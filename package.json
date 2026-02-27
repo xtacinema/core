@@ -1,6 +1,6 @@
 {
   "name": "@xtacinema/core",
-  "version": "1.0.13",
+  "version": "1.0.12",
   "description": "Core utilities for shared setup",
   "type": "module",
   "publishConfig": {
